@@ -8,8 +8,20 @@
   <packaging>pom</packaging>
   <name>ltl-base</name>
 
+  <properties>
+    <!-- https://www.baeldung.com/maven-java-version -->
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <java.version>1.8</java.version>
+
+    <pac4j.oidc.version>3.4.0</pac4j.oidc.version>
+    <pac4j.spring.security.version>4.1.0</pac4j.spring.security.version>
+    <servlet.version>3.1.0</servlet.version>
+  </properties>
+
   <modules>
     <module>ltl-core-lib</module>
+    <module>ltl-springsecurity-lib</module>
   </modules>
 
   <dependencyManagement>
@@ -17,7 +29,18 @@
       <dependency>
         <groupId>org.pac4j</groupId>
         <artifactId>pac4j-oidc</artifactId>
-        <version>3.4.0</version>
+        <version>${pac4j.oidc.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.pac4j</groupId>
+        <artifactId>spring-security-pac4j</artifactId>
+        <version>${pac4j.spring.security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
